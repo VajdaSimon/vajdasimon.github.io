@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+    <html lang="hu">
+        <head>
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="alap.css" type="text/css">
+            <title>The Big Game</title>
+            <script src="iranyitas.js"></script>
+        </head>
+        <body>
+            <div id="tankTest" class="tankTest">
+                <div id="tankCso" class="tankCso"></div>
+            </div>
+            <div class="pontokParent"><div id="pontok" class="pontok"></div></div>
+            <!-- <div id="lovedek" class="lovedek"></div> -->
+
+            <script>
+                document.getElementById("tankTest").style.transform = "rotate(0deg)";
+                document.getElementById("tankCso").style.width = 80 + "px";
+
+                document.body.innerHTML += "<div id='lovedek' class='lovedek'></div>";
+
+                document.body.innerHTML += "<div id='akadaly' class='akadaly'></div>";
+                akadalyElhelyezes();
+            </script>
+        </body>
+    </html>
