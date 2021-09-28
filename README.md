@@ -1,2 +1,2 @@
-# The_Big_Game_HTML
+# The Big Game
 Gyakorlásként készítem ezt a játékot HTML, CSS és JavaScript segítségével.
