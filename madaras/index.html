@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+    <html lang="hu">
+        <head>
+            <meta charset="utf-8">
+            <!-- <link rel="stylesheet" href="alap.css" type="text/css"> -->
+            <title>The Big Game</title>
+            <script>
+                document.onkeydown = checkKey;
+                function checkKey(e) {
+                    e = e || window.event;
+
+                    if (e.keyCode == '32') space();
+                    /* if (e.keyCode == '38') felNyil();
+                    if (e.keyCode == '40') leNyil();
+                    if (e.keyCode == '37') balraNyil();
+                    if (e.keyCode == '39') jobbraNyil(); */
+                }
+            </script>
+        </head>
+        <body>
+            <div id="madar" class="madar"></div>
+
+            <style>
+                .madar {
+                    position: absolute;
+                    left: 20%;
+                    width: 30px;
+                    height: 30px;
+                    background-color: black;
+                }
+            </style>
+            <script>
+                function eses() {
+                    if (document.getElementById("madar").offsetTop + document.getElementById("madar").offsetHeight < window.innerHeight) {
+                        document.getElementById("madar").style.top = document.getElementById("madar").offsetTop + 3 + "px";
+                    }
+                    setTimeout(eses, 15);
+                }
+
+                var tart = 0
+
+                function space() {
+                    if (document.getElementById("madar").offsetTop >= 0) {
+                        if (tart <= 15) {
+                            document.getElementById("madar").style.top = document.getElementById("madar").offsetTop - 10 + "px";
+                            tart++;
+                            setTimeout(space, 15)
+                        }
+                        else {
+                            tart = 0
+                        }
+                    }
+                }
+
+                eses();
+            </script>
+        </body>
+    </html>
