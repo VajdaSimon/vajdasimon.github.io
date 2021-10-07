@@ -3,6 +3,7 @@
         <head>
             <meta charset="utf-8">
             <!-- <link rel="stylesheet" href="alap.css" type="text/css"> -->
+            <meta name="viewport" content="width=device-width, initial-scale=1">
             <title>The Big Game</title>
             <script>
                 document.onkeydown = checkKey;
@@ -17,8 +18,9 @@
                 }
             </script>
         </head>
-        <body onclick="space()">
+        <body>
             <div id="madar" class="madar"></div>
+            <div id="pontok" class="pontok">Pontok: 0</div>
 
             <style>
                 .madar {
@@ -40,8 +42,23 @@
                     height: 45%;
                     background-color: black;
                 }
+                .pontok {
+                    position: relative;
+                    z-index: 100;
+                    text-align: center;
+                    color: black;
+                    background-color: white;
+                    display: block;
+                    width: 12ch;
+                    left: 45%;
+                    top: 0%;
+                }
             </style>
             <script>
+                window.onclick = () => {
+                   space()
+                }
+
                 function eses() {
                     if (document.getElementById("madar").offsetTop + document.getElementById("madar").offsetHeight < window.innerHeight) {
                         document.getElementById("madar").style.top = document.getElementById("madar").offsetTop + 3 + "px";
@@ -86,10 +103,19 @@
                     setTimeout(terep, 5500)
                 }
 
+                var pontok = 0;
+
                 function terepMozgas() {
                     for (i = 0; i < akadaly.length; i++) {
-                        document.getElementById(akadaly[i]).style.left = document.getElementById(akadaly[i]).offsetLeft - 1 + "px"
-                        document.getElementById(akadaly[i] + "2").style.left = document.getElementById(akadaly[i] + "2").offsetLeft - 1 + "px"
+                        if (document.getElementById(akadaly[i]).offsetLeft + document.getElementById(akadaly[i]).offsetWidth > 0) {
+                            document.getElementById(akadaly[i]).style.left = document.getElementById(akadaly[i]).offsetLeft - 1 + "px"
+                            document.getElementById(akadaly[i] + "2").style.left = document.getElementById(akadaly[i] + "2").offsetLeft - 1 + "px"
+                            
+                            if (document.getElementById(akadaly[i]).offsetLeft + document.getElementById(akadaly[i]).offsetWidth == document.getElementById("madar").offsetLeft) {
+                                pontok++
+                                document.getElementById("pontok").innerHTML = "Pontok: " + pontok
+                            }
+                        }
                     }
 
                     setTimeout(terepMozgas, 8)
