@@ -17,15 +17,27 @@
                 }
             </script>
         </head>
-        <body>
+        <body onclick="space()">
             <div id="madar" class="madar"></div>
 
             <style>
                 .madar {
                     position: absolute;
                     left: 20%;
-                    width: 30px;
-                    height: 30px;
+                    width: 5%;
+                    height: 5%;
+                    background-color: black;
+                }
+                .body {
+                    overflow: hidden;
+                    padding: 0px;
+                    margin: 0px;
+                }
+                .terep {
+                    position: absolute;
+                    right: 0%;
+                    width: 5%;
+                    height: 45%;
                     background-color: black;
                 }
             </style>
@@ -52,6 +64,39 @@
                     }
                 }
 
+                function randomSzam(min, max) { // min and max included 
+                    return Math.floor(Math.random() * (max - min + 1) + min)
+                }
+
+                var id = 0
+
+                const akadaly = []
+
+                function terep() {
+                    szam = randomSzam(20, 60)
+                    document.body.innerHTML += "<div id='terep" + id + "' class='terep'></div>"
+                    document.body.innerHTML += "<div id='terep" + id + "2' class='terep'></div>" 
+                    document.getElementById("terep" + id).style.height = szam + "%"
+                    document.getElementById("terep" + id).style.top = "0%"
+                    document.getElementById("terep" + id + "2").style.height = 100 - szam - 30 + "%"
+                    document.getElementById("terep" + id + "2").style.bottom = "0%"
+
+                    akadaly[id] = "terep" + id
+                    id++;
+                    setTimeout(terep, 5500)
+                }
+
+                function terepMozgas() {
+                    for (i = 0; i < akadaly.length; i++) {
+                        document.getElementById(akadaly[i]).style.left = document.getElementById(akadaly[i]).offsetLeft - 1 + "px"
+                        document.getElementById(akadaly[i] + "2").style.left = document.getElementById(akadaly[i] + "2").offsetLeft - 1 + "px"
+                    }
+
+                    setTimeout(terepMozgas, 8)
+                }
+
+                terep();
+                terepMozgas();
                 eses();
             </script>
         </body>
