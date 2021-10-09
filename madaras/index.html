@@ -34,6 +34,7 @@
                     overflow: hidden;
                     padding: 0px;
                     margin: 0px;
+                    user-select: none;
                 }
                 .terep {
                     position: absolute;
@@ -47,11 +48,12 @@
                     z-index: 100;
                     text-align: center;
                     color: black;
-                    background-color: white;
+                    background-color: rgb(204, 204, 204);
                     display: block;
                     width: 12ch;
                     left: 45%;
                     top: 0%;
+                    user-select: none;
                 }
             </style>
             <script>
@@ -62,7 +64,6 @@
                 function eses() {
                     if (document.getElementById("madar").offsetTop + document.getElementById("madar").offsetHeight < window.innerHeight) {
                         document.getElementById("madar").style.top = document.getElementById("madar").offsetTop + 3 + "px";
-                        ell()
                     }
                     setTimeout(eses, 15);
                 }
@@ -74,7 +75,6 @@
                         if (tart <= 30) {
                             document.getElementById("madar").style.top = document.getElementById("madar").offsetTop - 5 + "px";
                             tart++;
-                            ell()
                             setTimeout(space, 10)
                         }
                         else {
@@ -120,7 +120,6 @@
                         }
                     }
 
-                    ell();
                     setTimeout(terepMozgas, 8)
                 }
 
@@ -129,6 +128,28 @@
                         alert("A játéknak vége!\nTartsd a pályán a madarat!")
                         ujjatek()
                     }
+                    for (i = 0; i < akadaly.length; i++) {
+                        if (document.getElementById(akadaly[i]).offsetLeft < document.getElementById("madar").offsetLeft + document.getElementById("madar").offsetWidth && // felső jobb sarok
+                            document.getElementById(akadaly[i]).offsetLeft + document.getElementById(akadaly[i]).offsetWidth > document.getElementById("madar").offsetLeft + document.getElementById("madar").offsetWidth &&
+                            document.getElementById(akadaly[i]).offsetTop + document.getElementById(akadaly[i]).offsetHeight > document.getElementById("madar").offsetTop ||
+                            
+                            document.getElementById(akadaly[i]).offsetLeft < document.getElementById("madar").offsetLeft && // felső bal sarok
+                            document.getElementById(akadaly[i]).offsetLeft + document.getElementById(akadaly[i]).offsetWidth > document.getElementById("madar").offsetLeft &&
+                            document.getElementById(akadaly[i]).offsetTop + document.getElementById(akadaly[i]).offsetHeight > document.getElementById("madar").offsetTop ||
+                            
+                            
+                            document.getElementById(akadaly[i] + "2").offsetLeft < document.getElementById("madar").offsetLeft + document.getElementById("madar").offsetWidth && // alsó jobb sarok
+                            document.getElementById(akadaly[i] + "2").offsetLeft + document.getElementById(akadaly[i] + "2").offsetWidth > document.getElementById("madar").offsetLeft + document.getElementById("madar").offsetWidth &&
+                            document.getElementById(akadaly[i] + "2").offsetTop < document.getElementById("madar").offsetTop + document.getElementById("madar").offsetHeight ||
+                            
+                            document.getElementById(akadaly[i] + "2").offsetLeft < document.getElementById("madar").offsetLeft && // alsó bal sarok
+                            document.getElementById(akadaly[i] + "2").offsetLeft + document.getElementById(akadaly[i] + "2").offsetWidth > document.getElementById("madar").offsetLeft &&
+                            document.getElementById(akadaly[i] + "2").offsetTop < document.getElementById("madar").offsetTop + document.getElementById("madar").offsetHeight) {
+                                alert("A játéknak vége!\nNe érj hozzá az akadályokhoz!")
+                                ujjatek()
+                        }
+                    }
+                    setTimeout(ell, 1)
                 }
 
                 function ujjatek() {
@@ -146,6 +167,7 @@
                 terep();
                 terepMozgas();
                 eses();
+                ell();
             </script>
         </body>
     </html>
