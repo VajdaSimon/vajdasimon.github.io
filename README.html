@@ -1,0 +1,44 @@
+<html>
+    <body>
+
+    <div id="hu">
+        <button onclick="en()">ENG</button>
+        <h3>HUN</h3>
+        <p>Gyakorlásként készítem ezeket a játékokat.
+        Főbb nyelvek: <b>HTML5</b>, <b>CSS3</b> és <b>JavaScript5</b></p>
+
+        <p>Eddigi munkáim:
+        <ol>
+        <li>Tankos</li>
+        <li>Madaras</li>
+        </ol></p>
+    </div>
+    <div id="en">
+        <button onclick="hu()">HUN</button>
+        <h3>ENG</h3>
+        <p>I make these games as an exercise. 
+        Main languages: <b>HTML5</b>, <b>CSS3</b> and <b>JavaScript5</b></p>
+
+        <p>My works so far:
+        <ol>
+        <li>A project whit a tank</li>
+        <li>A project whit a "bird"</li>
+        </ol></p>
+    </div>
+
+    <script>
+        document.getElementById("hu").style.display = "block"
+        document.getElementById("en").style.display = "none"
+
+        function hu() {
+            document.getElementById("hu").style.display = "block"
+            document.getElementById("en").style.display = "none"
+        }
+
+        function en() {
+            document.getElementById("en").style.display = "block"
+            document.getElementById("hu").style.display = "none"
+        }
+    </script>
+    </body>
+</html>
