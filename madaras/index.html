@@ -21,6 +21,7 @@
         <body>
             <div id="madar" class="madar"></div>
             <div id="pontok" class="pontok">Pontok: 0</div>
+            <div id="talaj" class="talaj"></div>
 
             <style>
                 .madar {
@@ -55,8 +56,20 @@
                     top: 0%;
                     user-select: none;
                 }
+                .talaj {
+                    position: fixed;
+                    z-index: 100;
+                    width: 100%;
+                    height: 5%;
+                    background-color: rgb(0, 185, 0);
+                    bottom: 0%;
+                    left: 0%;
+                    display: block;
+                }
             </style>
             <script>
+                window.innerHeight = window.innerHeight - document.getElementById("talaj").offsetHeight
+
                 window.onclick = () => {
                    space()
                 }
