@@ -62,6 +62,7 @@
                 function eses() {
                     if (document.getElementById("madar").offsetTop + document.getElementById("madar").offsetHeight < window.innerHeight) {
                         document.getElementById("madar").style.top = document.getElementById("madar").offsetTop + 3 + "px";
+                        ell()
                     }
                     setTimeout(eses, 15);
                 }
@@ -73,6 +74,7 @@
                         if (tart <= 30) {
                             document.getElementById("madar").style.top = document.getElementById("madar").offsetTop - 5 + "px";
                             tart++;
+                            ell()
                             setTimeout(space, 10)
                         }
                         else {
@@ -118,7 +120,27 @@
                         }
                     }
 
+                    ell();
                     setTimeout(terepMozgas, 8)
+                }
+
+                function ell() {
+                    if (document.getElementById("madar").offsetTop + document.getElementById("madar").offsetHeight >= window.innerHeight || document.getElementById("madar").offsetTop == 0) {
+                        alert("A játéknak vége!\nTartsd a pályán a madarat!")
+                        ujjatek()
+                    }
+                }
+
+                function ujjatek() {
+                    pontok = 0
+                    document.getElementById("pontok").innerHTML = "Pontok: " + pontok
+                    document.getElementById("madar").style.top = window.innerHeight / 2 + "px"
+                    for (i = 0; i < akadaly.length; i++) {
+                        if (document.getElementById(akadaly[i]).offsetLeft + document.getElementById(akadaly[i]).offsetWidth > 0) {
+                            document.getElementById(akadaly[i]).style.display = "none"
+                            document.getElementById(akadaly[i] + "2").style.display = "none"
+                        }
+                    }
                 }
 
                 terep();
