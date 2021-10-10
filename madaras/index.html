@@ -66,6 +66,13 @@
                     left: 0%;
                     display: block;
                 }
+                .fu {
+                    position: absolute;
+                    background-color: rgb(0, 131, 0);
+                    z-index: 200;
+                    display: block;
+                    right: 0%;
+                }
             </style>
             <script>
                 window.innerHeight = window.innerHeight - document.getElementById("talaj").offsetHeight
@@ -110,8 +117,10 @@
                     document.body.innerHTML += "<div id='terep" + id + "2' class='terep'></div>" 
                     document.getElementById("terep" + id).style.height = szam + "%"
                     document.getElementById("terep" + id).style.top = "0%"
-                    document.getElementById("terep" + id + "2").style.height = 100 - szam - 30 + "%"
+                    document.getElementById("terep" + id).style.left = window.innerWidth + document.getElementById("terep" + id).offsetWidth + "px"
+                    document.getElementById("terep" + id + "2").style.height = 100 - szam - 25 + "%"
                     document.getElementById("terep" + id + "2").style.bottom = "0%"
+                    document.getElementById("terep" + id + "2").style.left = window.innerWidth + document.getElementById("terep" + id + "2").offsetWidth + "px"
 
                     akadaly[id] = "terep" + id
                     id++;
@@ -131,6 +140,10 @@
                                 document.getElementById("pontok").innerHTML = "Pontok: " + pontok
                             }
                         }
+                        else {
+                            document.getElementById(akadaly[i]).style.display = "none"
+                            document.getElementById(akadaly[i] + "2").style.display = "none"
+                        }
                     }
 
                     setTimeout(terepMozgas, 8)
@@ -138,7 +151,7 @@
 
                 function ell() {
                     if (document.getElementById("madar").offsetTop + document.getElementById("madar").offsetHeight >= window.innerHeight || document.getElementById("madar").offsetTop == 0) {
-                        alert("A játéknak vége!\nTartsd a pályán a madarat!")
+                        alert("A játéknak vége!\nTartsd a pályán a madarat!\nMost " + pontok + " pontot értél el.")
                         ujjatek()
                     }
                     for (i = 0; i < akadaly.length; i++) {
@@ -158,7 +171,7 @@
                             document.getElementById(akadaly[i] + "2").offsetLeft < document.getElementById("madar").offsetLeft && // alsó bal sarok
                             document.getElementById(akadaly[i] + "2").offsetLeft + document.getElementById(akadaly[i] + "2").offsetWidth > document.getElementById("madar").offsetLeft &&
                             document.getElementById(akadaly[i] + "2").offsetTop < document.getElementById("madar").offsetTop + document.getElementById("madar").offsetHeight) {
-                                alert("A játéknak vége!\nNe érj hozzá az akadályokhoz!")
+                                alert("A játéknak vége!\nNe érj hozzá az akadályokhoz!\nMost " + pontok + " pontot értél el.")
                                 ujjatek()
                         }
                     }
@@ -177,10 +190,43 @@
                     }
                 }
 
+                var talajId = 0
+                const talajFu = []
+
+                function talaj() {
+                    w = randomSzam(document.getElementById("talaj").offsetHeight / 3, document.getElementById("talaj").offsetHeight)
+                    h = randomSzam(document.getElementById("talaj").offsetHeight / 3, document.getElementById("talaj").offsetHeight)
+                    b = randomSzam(0, document.getElementById("talaj").offsetHeight - h)
+                    document.getElementById("talaj").innerHTML += "<div id='fu" + talajId + "' class='fu'></div>"
+                    document.getElementById("fu" + talajId).style.width = w + "px"
+                    document.getElementById("fu" + talajId).style.height = h + "px"
+                    document.getElementById("fu" + talajId).style.bottom = b + "px"
+                    document.getElementById("fu" + talajId).style.left = window.innerWidth + document.getElementById("fu" + talajId).offsetWidth + "px"
+                    
+                    talajFu[talajId] = "fu" + talajId
+                    talajId++;
+                    setTimeout(talaj, randomSzam(4000, 15000))
+                }
+
+                function talajMozgas() {
+                    for (i = 0; i < talajFu.length; i++) {
+                        if (document.getElementById(talajFu[i]).offsetLeft + document.getElementById(talajFu[i]).offsetWidth > 0) {
+                            document.getElementById(talajFu[i]).style.left = document.getElementById(talajFu[i]).offsetLeft - 1 + "px"
+                        }
+                        else {
+                            document.getElementById(talajFu[i]).style.display = "none"
+                        }
+                    }
+
+                    setTimeout(talajMozgas, 8)
+                }
+
                 terep();
                 terepMozgas();
                 eses();
                 ell();
+                talaj();
+                talajMozgas();
             </script>
         </body>
     </html>
