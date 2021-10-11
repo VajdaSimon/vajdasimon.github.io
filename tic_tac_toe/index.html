@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+    <html lang="hu">
+        <head>
+            <meta charset="utf-8">
+            <title>Tic Tac Toe</title>
+        </head>
+        <body>
+            <style>
+                .palya {
+                    border: solid black 1px;
+                    display: inline-block;
+                    height: 150px;
+                    width: 150px;
+                }
+            </style>
+            <script>
+                const ids = []
+                var idek = 0
+
+                function terepLetrehozas(x, y) {
+                    if (window.innerWidth < window.innerHeight) {
+                        meret = window.innerWidth / x - 14
+                    }
+                    else {
+                        meret = window.innerHeight / y - 14
+                    }
+
+                    for (idY = 1; idY <= y; idY++) {
+                        for (idX = 1; idX <= x; idX++) {
+                            id = String(idY) + String(idX)
+                            document.body.innerHTML += "<div id='" + id + "' class='palya' onclick='jatekos(" + id + ")' style='background-color: white;'></div>"
+                            document.getElementById(id).style.height = meret + "px"
+                            document.getElementById(id).style.width = meret + "px"
+                            ids[idek] = id
+                            idek++
+                        }
+                        document.body.innerHTML += "<br>"
+                    }
+                }
+
+                var jon = 1
+
+                function jatekos(id) {
+                    if (document.getElementById(id).style.backgroundColor == "white") {
+                        if (jon == 1) {
+                            document.getElementById(id).style.backgroundColor = "lightblue"
+                            ell(id, "kék")
+                            jon = 2
+                        }
+                        else if (jon == 2) {
+                            document.getElementById(id).style.backgroundColor = "lightgreen"
+                            ell(id, "zöld")
+                            jon = 1
+                        }
+                    }
+                }
+
+                const szamok = [-1, -9, -10, -11]
+
+                function ell(id, szin) {
+                    talalatok = []
+                    talalat = 0
+
+                    for (i = 0; i < 4; i++) {
+                        if (ids.indexOf(String(id + szamok[i])) != -1) {
+                            if (document.getElementById(id).style.backgroundColor == document.getElementById(id + szamok[i]).style.backgroundColor) {
+                                talalatok[talalat] = id + szamok[i]
+                                talalat++
+                            }
+                        }
+                        if (ids.indexOf(String(id + Math.abs(szamok[i]))) != -1) {
+                            if (document.getElementById(id).style.backgroundColor == document.getElementById(id + Math.abs(szamok[i])).style.backgroundColor) {
+                                talalatok[talalat] = id + Math.abs(szamok[i])
+                                talalat++
+                            }
+                        }
+                    }
+                    for (i = 0; i < talalatok.length; i++) {
+                        kulonbseg = Math.abs(id - talalatok[i])
+                        talalat2 = 0
+
+                        for (i = 1; i <= mod - 1; i++) {
+                            if (ids.indexOf(String(id + kulonbseg * i)) != -1 && document.getElementById(id).style.backgroundColor == document.getElementById(id + kulonbseg * i).style.backgroundColor) {
+                                talalat2++
+                            }
+                            if (ids.indexOf(String(id - kulonbseg * i)) != -1 && document.getElementById(id).style.backgroundColor == document.getElementById(id - kulonbseg * i).style.backgroundColor) {
+                                talalat2++
+                            }
+                        }
+
+                        if (talalat2 == mod - 1) {
+                            alert("Myert a " + szin)
+                        }
+                    }
+
+                }
+
+                var mod = 3 //Játék mód. Hánynak kell meglennie?
+                terepLetrehozas(3, 3) //x, y
+            </script>
+        </body>
+    </html>

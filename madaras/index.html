@@ -11,8 +11,9 @@
                     e = e || window.event;
 
                     if (e.keyCode == '32') space();
-                    /* if (e.keyCode == '38') felNyil();
-                    if (e.keyCode == '40') leNyil();
+                    if (e.keyCode == '38') space();
+                    if (e.keyCode == '87') space();
+                    /* if (e.keyCode == '40') leNyil();
                     if (e.keyCode == '37') balraNyil();
                     if (e.keyCode == '39') jobbraNyil(); */
                 }
@@ -32,7 +33,6 @@
                     background-color: black;
                 }
                 .body {
-                    overflow: hidden;
                     padding: 0px;
                     margin: 0px;
                     user-select: none;
@@ -76,6 +76,7 @@
             </style>
             <script>
                 window.innerHeight = window.innerHeight - document.getElementById("talaj").offsetHeight
+                document.body.style.overflow = "hidden";
 
                 window.onclick = () => {
                    space()
