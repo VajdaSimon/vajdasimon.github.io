@@ -28,7 +28,7 @@
 
                     <p>Eddigi munkáim:
                     <ol>
-                    <li>Tankos</li>
+                    <li><a href="tankos/index.html">Tankos</a></li>
                     <li><a href="madaras/index.html">Madaras</a></li>
                     </ol></p>
                     
@@ -42,8 +42,8 @@
 
                     <p>My works so far:
                     <ol>
-                    <li>A project whit a tank</li>
-                    <li>A project whit a "bird"</li>
+                    <li><a href="tankos/index.html">A project whit a tank</a></li>
+                    <li><a href="madaras/index.html">A project whit a "bird"</a></li>
                     </ol></p>
                 </div>
             </div>
@@ -52,6 +52,12 @@
                 document.getElementById("hun").style.display = "block"
                 document.getElementById("eng").style.display = "none"
                 document.getElementById("parent").style.height = window.innerHeight + "px";
+
+                const alma = []
+
+                alma["hello"] = "asdf"
+
+                alert(alma["hello"])
 
                 if (window.innerWidth <= 1000) {
                     document.getElementById("parent").style.left = 0 + "px";
