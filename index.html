@@ -1,1 +1,73 @@
-heli
+<!DOCTYPE html>
+    <html lang="hu">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+        </head>
+        <body>
+            <style>
+                .parent {
+                    position: fixed;
+                    top: 0%;
+                    left: 20%;
+                    width: 60%;
+                    background-color: lightblue;
+                }
+                div {
+                    padding: 5px;
+                }
+            </style>
+            <div class="parent" id="parent">
+                <div id="hun">
+                    <h1>Játékok HTML5-ben</h1>
+                    <button onclick="nyelv()">ENG</button>
+
+                    <p>Gyakorlásként készítem ezeket a játékokat.
+                    Főbb nyelvek: <b>HTML5</b>, <b>CSS3</b> és <b>JavaScript5</b></p>
+
+                    <p>Eddigi munkáim:
+                    <ol>
+                    <li>Tankos</li>
+                    <li>Madaras</li>
+                    </ol></p>
+                    
+                </div>
+                <div id=eng>
+                    <h1>Games in HTML5</h1>
+                    <button onclick="nyelv()">HUN</button>
+
+                    <p>I make these games as an exercise. 
+                    Main languages: <b>HTML5</b>, <b>CSS3</b> and <b>JavaScript5</b></p>
+
+                    <p>My works so far:
+                    <ol>
+                    <li>A project whit a tank</li>
+                    <li>A project whit a "bird"</li>
+                    </ol></p>
+                </div>
+            </div>
+
+            <script>
+                document.getElementById("hun").style.display = "block"
+                document.getElementById("eng").style.display = "none"
+                document.getElementById("parent").style.height = window.innerHeight + "px";
+
+                if (window.innerWidth <= 1000) {
+                    document.getElementById("parent").style.left = 0 + "px";
+                    document.getElementById("parent").style.width = window.innerWidth + "px";
+                }
+
+                function nyelv() {
+                    if (document.getElementById("hun").style.display == "block") {
+                        document.getElementById("eng").style.display = "block"
+                        document.getElementById("hun").style.display = "none"
+                    }
+                    else {
+                        document.getElementById("hun").style.display = "block"
+                        document.getElementById("eng").style.display = "none"
+                    }
+                }
+            </script>
+        </body>
+    </html>

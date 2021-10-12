@@ -42,20 +42,16 @@
 
                 function jatekos(id) {
                     if (document.getElementById(id).style.backgroundColor == "white") {
-                        if (jon == 1) {
-                            document.getElementById(id).style.backgroundColor = "lightblue"
-                            ell(id, "kék")
-                            jon = 2
-                        }
-                        else if (jon == 2) {
-                            document.getElementById(id).style.backgroundColor = "lightgreen"
-                            ell(id, "zöld")
-                            jon = 1
-                        }
+                        document.getElementById(id).style.backgroundColor = "lightblue"
                     }
+                    gep()
                 }
 
                 const szamok = [-1, -9, -10, -11]
+
+                function gep() {
+                    
+                }
 
                 function ell(id, szin) {
                     talalatok = []
