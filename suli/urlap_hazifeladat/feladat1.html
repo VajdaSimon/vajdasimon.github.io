@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+    <html lang="hu">
+        <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="urlap.css" type="text/css">
+            <title>Űrlapelemek - Feladat1</title>
+        </head>
+
+        <body>
+
+            <form action="mailto:valaki@valahol.hu" method="post" enctype="text/plain" name="UrlapKezd">
+
+                <!-- űrlap elemek helye-->
+                <fieldset>
+                    <legend>Regisztráció</legend>
+                    <!-- ##### -->
+                    <p>Kedves Látogatónk! A szolgáltatásunk igénybevételéhez kérjük, regisztáljon az alábbi adatok megadásával!</p>
+                    <!-- ##### -->
+                    <label for="azonositoInput">Azonosító*:</label>
+                    <input type="text" name="azonosito" id="azonositoInput" size="5" required="required">
+                    <br>
+                    <!-- ##### -->
+                    <label for="jelszoInput">Jelszó*:</label>
+                    <input type="password" name="jelszo" id="jelszoInput" size="5" required="required">
+                    <br>
+                    <!-- ##### -->
+                    <label for="jelszoMegEgyszerInput">Jelszó még egyszer*:</label>
+                    <input type="password" name="jelszoMegEgyszer" id="jelszoMegEgyszerInput" size="5" required="required">
+                    <br>
+                    <!-- ##### -->
+                    <label for="emailInput">E-mail cím*:</label>
+                    <input type="email" name="email" id="emailInput" required="required">
+                    <br>
+                    <!-- ##### -->
+                    <label for="telefonszamInput">Telefonszám:</label>
+                    <p class="inlineP">Formátum: +36(körzetszám)123-4567</p><br>
+                    <input type="tel" name="telefonszam" id="telefonszamInput" size="10" placeholder="+36(99)123-456">
+                    <br>
+                    <!-- ##### -->
+                    <label for="honlapCimInput">Honlap címe (ha van):</label>
+                    <input type="url" name="honlapCim" id="honlapCimInput">
+                    <br>
+                    <!-- ##### -->
+                    <p>
+                        <input class="button" type="submit" value="Elküld" />
+                        <input class="button" type="reset" value="Alaphelyzetbe állít" />
+                    </p>
+                </fieldset>
+                <fieldset>
+                    <legend>Véleményem</legend>
+                    <textarea class="velemeny" id="velemeny" rows="12" cols="45" name="Velemeny"></textarea>
+                </fieldset>
+            </form>
+        </body>
+    </html>

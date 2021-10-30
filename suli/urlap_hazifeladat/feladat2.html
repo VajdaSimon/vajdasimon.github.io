@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <html lang="hu">
+        <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="urlap.css" type="text/css">
+            <title>Űrlapelemek - Feladat2</title>
+        </head>
+
+        <body>
+
+            <form action="mailto:valaki@valahol.hu" method="post" enctype="text/plain" name="UrlapKezd">
+
+                <!-- űrlap elemek helye-->
+                <fieldset>
+                    <legend>Behajtási engedély igénylése</legend>
+                    <!-- ##### -->
+                    <p>Kedves Látogatónk! Az ELTE parkolójába történő behajtási engedélyhez kérjük adja meg az alábbi adatokat!</p>
+                    <!-- ##### -->
+                    <label for="nevInput">Név:</label>
+                    <input type="text" name="nev" id="nevInput" size="28" required="required">
+                    <br>
+                    <!-- ##### -->
+                    <label for="rendszamInput">Gépkocsi redszáma (3 betű majd 3 szám):</label>
+                    <input type="text" name="rendszam" id="rendszamInput" size="2" required="required" placeholder="ABC123">
+                    <br>
+                    <!-- ##### -->
+                    <label for="karOktatojaInput">Melyik Karunk oktatójához érkezik?</label>
+                    <input type="text" name="karOkatoja" id="karOktatojaInput" size="40" required="required">
+                    <br>
+                    <!-- ##### -->
+                    <p>
+                        <input class="button" type="submit" value="Elküld" />
+                        <input class="button" type="reset" value="Alaphelyzetbe állít" />
+                    </p>
+                </fieldset>
+            </form>
+        </body>
+    </html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8" />
+        </head>
+        <body>
+        <style>
+            
+        </style>
+
+        <div id="szoveg"></div>
+        <div id="ures"></div>
+
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+        <script>
+        var szoveg = `Hallgatom a Király lépteit,
+        Lelke hívő szívveréseit
+        Megmentett a sötét fogságból
+        Hallom, hogy a Szellem hozzám szól
+
+        Így szól:
+        Ébredj fel, most fénylened kell
+        Ezért élsz, a te időd jött el x2
+
+        Hallgatom a mennydörgés zaját
+        Hirdetem a feltámadt Királyt
+        Láncokat és falakat zúz szét
+        Várom már a kürtje zengését
+
+        Így szól:
+        Ébredj fel, most fénylened kell
+        Ezért élsz, a te időd jött el x2
+
+        Ez a himnusz, ez a nemzedékünk
+        Rázz fel, Atyánk, rázd fel népünk
+        Teutánad vágyunk, mert megragadtál
+
+        Vár a királyság
+        Vár a szabadság
+        Vár az elhívás
+        A történelem formálás
+
+        Változzon át Föld!`
+
+        szoveg = szoveg.split("\n");
+
+        var meret = 10;
+        var leghosszabbsorMeret = 0;
+        var leghosszabbsor = 0;
+        var szam = 13;
+        var eddig = 0;
+        var maxsor = 1;
+        var elozo = "sor1";
+
+        for (i = 0; i <= szoveg.length - 1; i++) {
+            if (szoveg[i] == "") {
+                document.getElementById("szoveg").innerHTML = document.getElementById("szoveg").innerHTML + "<div onclick=ugras(\"sor" + i + "\") id=\"sor" + i + "\" style='width:300px; height: 25px;'></div>";
+            }
+            else {
+                document.getElementById("szoveg").innerHTML = document.getElementById("szoveg").innerHTML + "<span id=\"sor" + i + "\" onclick=ugras(\"sor" + i + "\") style='white-space:nowrap;'>" + szoveg[i] + "</span><br>"
+            }
+        }
+
+        function myFunction() {
+            var myWindow = window.open("", "MsgWindow", "width=700,height=300");
+
+            if (eddig == 2) {
+                myWindow.document.body.innerHTML = ""; 
+            }
+
+            if (eddig == 0) { //Ahoz kell, hogy 0.2 sec eltolást tegyen a dologba első megnyitásra.
+                eddig = 1;
+                setTimeout(function(){myFunction()}, 200);
+                exit();
+            }
+
+            for (i = 0; i <= szoveg.length - 1; i++) {
+                if (szoveg[i] == "") {
+                    myWindow.document.write("<div id=\"sor" + i + "\" style='width:20px'></div>");
+                }
+                else {
+                    myWindow.document.write("<span id=\"sor" + i + "\" style='white-space:nowrap;'>" + szoveg[i] + "</span><br>");
+                }
+            }
+
+            eddig = 2;
+
+            for (i = 0; i <= szoveg.length - 1; i++) {
+                if (myWindow.document.getElementById('sor' + i).offsetWidth > leghosszabbsorMeret) {
+                    leghosszabbsor = "sor" + i;
+                    leghosszabbsorMeret = myWindow.document.getElementById('sor' + i).offsetWidth;
+                }
+            }
+            while (myWindow.document.getElementById(leghosszabbsor).offsetWidth < myWindow.innerWidth) {
+                meret++;
+                myWindow.document.getElementById(leghosszabbsor).style.fontSize = meret + "px";
+            }
+            meret -= 1.3
+
+            for (i = 0; i <= szoveg.length - 1; i++) {
+                myWindow.document.getElementById('sor' + i).style.fontSize = meret + "px";
+            }
+            for (i = 0; i <= szoveg.length - 1; i++) {
+                myWindow.document.getElementById('sor' + i).style.height = myWindow.document.getElementById(leghosszabbsor).offsetHeight;
+            }
+            myWindow.document.body.innerHTML = myWindow.document.body.innerHTML + "<div style='width:20px; height:" + myWindow.innerHeight + "'></div>"
+
+            myWindow.document.body.style.color = "white";
+            myWindow.document.body.style.backgroundColor = "black";
+            myWindow.document.body.style.overflow = "hidden";
+            myWindow.document.body.style.userSelect = "none";
+            myWindow.document.body.style.cursor = "none";
+
+            maxsor = myWindow.innerHeight / myWindow.document.getElementById(leghosszabbsor).offsetHeight
+            if ((maxsor % 1) > 0.9) {
+                maxsor = Math.round(maxsor);
+            }
+            else{
+                maxsor = Math.floor(maxsor);
+            }
+
+        }
+
+        function ugras(ide) {
+            myFunction()
+            var myWindow = window.open("", "MsgWindow");
+            myWindow.document.getElementById(ide).scrollIntoView(true)
+
+            jelezd(ide.slice(3))
+        }
+
+        function jelezd(innentol) {
+            for (i = 0; i <= szoveg.length - 1; i++) {
+                document.getElementById('sor' + i).style.backgroundColor = "white"
+            }
+
+            for (i = 0; i < maxsor; i++) {
+                a = parseInt(i) + parseInt(innentol)
+                document.getElementById('sor' + a).style.backgroundColor = "lightblue"
+            }
+        }
+        </script>
+        </body>
+    </html>

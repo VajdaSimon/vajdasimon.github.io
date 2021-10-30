@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>test</title>
+  </head>
+  <body>
+    <input type="text" id="ige">
+    <input type="button" onclick="vizsgald()" value="vizsgald">
+    <script>
+      function vizsgald() {
+        ige = document.getElementById("ige").value.toLowerCase().trim().replaceAll(/\s/g,'');
+        keresd = "mt"
+        if (ige.search(keresd) != -1) {
+          for (let i = 0; i <= ige.length; i++) {
+            if (ige.endsWith(keresd, i) == true) {
+                var konyv = ige.slice(0, i)
+              }
+          }
+          ige = ige.split(keresd)
+          ige = ige[1].split(",")
+          resz = ige[0]
+          ige = ige[1].split("-")
+          verstol = ige[0]
+          versig = ige[1]
+
+          console.log(konyv)
+          console.log(resz)
+          console.log(verstol)
+          console.log(versig)
+        }
+        else {
+          console.log("hiba")
+        }
+      }
+    </script>
+  </body>
+</html>

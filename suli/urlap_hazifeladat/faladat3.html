@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <html lang="hu">
+        <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="urlap.css" type="text/css">
+            <title>Űrlapelemek - Feladat3</title>
+        </head>
+
+        <body>
+
+            <form action="mailto:valaki@valahol.hu" method="post" enctype="text/plain" name="UrlapKezd">
+
+                <!-- űrlap elemek helye-->
+                <fieldset>
+                    <legend>Kérdőív</legend>
+                    <!-- ##### -->
+                    <p>Mely kurzusokat vetted fel ebben a félévben?</p>
+                    <!-- ##### -->
+                    <input type="checkbox" name="webFejlesztes" id="webFejlesztesInput">
+                    <label class="feladat3" for="webFejlesztesInput">Web-fejlesztés 1.</label>
+                    <br>
+                    <!-- ##### -->
+                    <input type="checkbox" name="webProgramozas" id="webProgramozasInput">
+                    <label class="feladat3" for="webProgramozasInput">Web-programozas 1.</label>
+                    <br>
+                    <!-- ##### -->
+                    <input type="checkbox" name="webGrafika" id="webGrafikaInput">
+                    <label class="feladat3" for="webGrafikaInput">Web-grafika 2.</label>
+                    <br>
+                    <!-- ##### -->
+                    <p>
+                        <input class="button" type="submit" value="Elküld" />
+                        <input class="button" type="reset" value="Alaphelyzetbe állít" />
+                    </p>
+                </fieldset>
+            </form>
+        </body>
+    </html>

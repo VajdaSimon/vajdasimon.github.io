@@ -1,0 +1,59 @@
+.menu {
+	list-style-type: none;
+	margin: 0;
+	padding: 10;
+	width: 25%;
+	background-color: lightgray;
+	position: fixed;
+	height: 99%;
+	right: 0%;
+	top: 0%;
+	font-size: 120%;
+}
+
+.gombok {
+	font-size: 90%;
+	margin: 1px;
+	width: 100%;
+}
+
+.szoveg {
+	list-style-type: none;
+	width: 72.5%;
+	background-color: white;
+	position: fixed;
+	height: 99%;
+	overflow: auto;
+	user-select:none;
+	font-size: 200%;
+}
+
+.ihely_kiir {
+	width: 72.5%;
+}
+
+talalat:hover {
+	color: blue;
+	text-decoration: underline;
+}
+.keresesBox {
+	white-space:nowrap;
+}
+.inKeresesBox1 {
+	width: 80%;
+}
+.inKeresesBox2 {
+	width: 19%;
+}
+@media only screen and (max-width: 1250px) {
+	.keresesBox {
+		white-space:normal;
+	}
+	.inKeresesBox1 {
+		width: 100%;
+		margin: 1px;
+	}
+	.inKeresesBox2 {
+		width: auto;
+	}
+}
