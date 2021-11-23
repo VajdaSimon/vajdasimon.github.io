@@ -1,9 +1,5 @@
 nav {
-    background-color: black;
-    padding: 20px;
     text-align: center;
-    border-radius: 20px;
-    margin: 20px 0 20px 0;
 }
 
 li {
@@ -11,7 +7,7 @@ li {
     color: white;
     margin: 30px;
     padding: 20px;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -26,35 +22,48 @@ a:hover {
     font-weight: bold;
 }
 
-
-/*Main formazasok*/
-
 .tartalom {
-    padding: 10px;
-    margin: 10px 0 0 0;
     text-align: center;
     text-transform: uppercase;
-    background-color: black;
     color: white;
     border-radius: 20px;
 }
 
-.lead {
-    text-align: left;
-    color: magenta;
-    font-size: 12px;
+.szoveg {
+    text-align: justify;
+    color: rgb(240, 204, 0);
+    font-size: 16px;
     text-transform: none;
 }
 
-.search {
-    text-align: left;
-    color: yellow;
-    font-size: 12px;
-    text-transform: none;
+body {
+    background-color: rosybrown;
 }
 
-#kep {
-    border: 3px solid white;
-    border-radius: 1px;
-    height: 50%;
+td {
+    width: 50%;
+}
+
+table {
+    width: 100%;
+}
+
+hr {
+    border: solid 2px white;
+}
+
+div,nav {
+    background-color: rgb(88, 88, 88);
+    border-radius: 20px;
+    padding: 10px 5px 10px 5px;
+    margin: 0 0 20px 0;
+}
+
+.elerhetosegek {
+    color: rgb(240, 204, 0);
+    padding: 16px 5px 1px 5px;
+}
+
+.inline {
+    display: inline;
 }
