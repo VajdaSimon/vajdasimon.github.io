@@ -1,0 +1,108 @@
+body {
+    overflow: hidden;
+}
+
+.vonalak div {
+    position: absolute;
+    width: 2px;
+    height: 125%;
+    top: 0px;
+    background-color: rgb(56, 56, 56);
+    box-shadow: 0px 0px 30px 15px black;
+}
+.kozep {
+    left: 50%;
+}
+.bal {
+    left: 0px;
+}
+.jobb {
+    right: 0px;
+}
+
+.oldal1 {
+    display: block;
+    position: fixed;
+    overflow: scroll;
+    top: 2%;
+    bottom: 4%;
+    left: 4%;
+    width: 42%;
+    text-align: justify;
+}
+
+.oldal1 .oldalSzam {
+    display: block;
+    position: fixed;
+    bottom: 2%;
+    left: 4%;
+    width: 42%;
+    text-align: left;
+    border-top: 1px solid black;
+    padding: 5px;
+}
+
+.oldal2 {
+    display: block;
+    position: fixed;
+    overflow: scroll;
+    top: 2%;
+    bottom: 4%;
+    right: 4%;
+    width: 42%;
+    text-align: justify;
+}
+
+.oldal2 .oldalSzam {
+    display: block;
+    position: fixed;
+    bottom: 2%;
+    right: 4%;
+    width: 42%;
+    text-align: right;
+    border-top: 1px solid black;
+    padding: 5px;
+}
+
+.oldalHidden {
+    display: none;
+}
+
+.oldalFeltoltes {
+    display: block;
+    position: fixed;
+    overflow: scroll;
+    top: 2%;
+    bottom: 4%;
+    right: 4%;
+    width: 42%;
+    text-align: justify;
+}
+
+.kovetkezo {
+    position: fixed;
+    width: 2px;
+    height: 100%;
+    top: 0px;
+    right: 0px;
+    width: 40px;
+    background-color: transparent;
+}
+.kovetkezo:hover {
+    background-color: lightblue;
+    box-shadow: 0px 0px 30px 15px rgb(160, 209, 225);
+}
+
+.elozo {
+    position: fixed;
+    width: 2px;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    width: 40px;
+    background-color: transparent;
+}
+.elozo:hover {
+    background-color: lightblue;
+    box-shadow: 0px 0px 30px 15px rgb(160, 209, 225);
+}
