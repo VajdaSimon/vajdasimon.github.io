@@ -23,7 +23,7 @@ body {
 .oldal1 {
     display: block;
     position: fixed;
-    overflow: scroll;
+    overflow: hidden;
     top: 2%;
     bottom: 4%;
     left: 4%;
@@ -45,7 +45,7 @@ body {
 .oldal2 {
     display: block;
     position: fixed;
-    overflow: scroll;
+    overflow: hidden;
     top: 2%;
     bottom: 4%;
     right: 4%;
