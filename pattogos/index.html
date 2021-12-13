@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+    <html lang="hu">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Pattogós</title>
+            <link rel="stylesheet" href="alap.css" type="text/css">
+        </head>
+        <body>
+            <style>
+                .negyzet {
+                    display: block;
+                    position: fixed;
+                    width: 10%;
+                    height: 10%;
+                    background-color: black;
+                }
+            </style>
+
+            <div class="negyzet" id="negyzet"></div>
+
+            <script>
+                var object = document.getElementById("negyzet")
+                var meretY = object.offsetHeight
+                var meretX = object.offsetWidth
+                var iranyX = 0
+                var iranyY = 0
+
+                console.log(meretX)
+                console.log(meretY)
+                console.log(window.innerWidth)
+                console.log(window.innerHeight)
+
+
+                function kezd() {
+                    randomX = Math.floor(Math.random() * window.innerWidth)
+                    randomY = Math.floor(Math.random() * window.innerHeight)
+                    if (randomX > window.innerWidth) { randomX -= meretX * 5} 
+                    if (randomY > window.innerHeight) { randomY -= meretY * 5} 
+
+                    object.style.top = randomY + "px"
+                    object.style.left = randomX + "px"
+
+                    irany()
+                }
+
+                var betoltve = 0
+
+                function irany() {
+                    if (betoltve == 0) {
+                        var szam1 = Math.floor(Math.random() * 2)
+                        var szam2 = Math.floor(Math.random() * 2)
+
+                        if (szam1 == 0) { iranyX = "jobbra" }
+                        if (szam1 == 1) { iranyX = "balra" }
+                        if (szam2 == 0) { iranyY = "le" }
+                        if (szam2 == 1) { iranyY = "fel" }
+
+                        betoltve = 1
+                    }
+
+                    if (object.offsetLeft + meretX > window.innerWidth && iranyX == "jobbra") { iranyX = "balra" }
+                    if (object.offsetLeft < 0 && iranyX == "balra") { iranyX = "jobbra" }
+                    if (object.offsetTop + meretY > window.innerHeight && iranyY == "le") { iranyY = "fel" }
+                    if (object.offsetTop < 0 && iranyY == "fel") { iranyY = "le" }
+
+                    setTimeout(mozgas, 1)
+                }
+                var plus = 0
+                if (window.innerWidth > window.innerHeight) {
+                    plus = (window.innerWidth - window.innerHeight + meretX + meretY) / 400
+                }
+                else {
+                    plus = (window.innerHeight - window.innerWidth + meretX + meretY) / 400
+                }
+                
+
+                console.log(plus)
+
+                function mozgas() {
+                    if (iranyX == "jobbra") { 
+                        object.style.left = object.offsetLeft + plus + "px" 
+                    }
+                    if (iranyX == "balra") { 
+                        object.style.left = object.offsetLeft - plus + "px" 
+                    }
+                    if (iranyY == "le") { 
+                        object.style.top = object.offsetTop + plus + "px" 
+                    }
+                    if (iranyY == "fel") { 
+                        object.style.top = object.offsetTop - plus + "px" 
+                    }
+                    irany()
+                }
+
+
+                kezd()
+            </script>
+        </body>
+    </html>
