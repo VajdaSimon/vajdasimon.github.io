@@ -17,7 +17,7 @@
                 }
             </style>
 
-            <div class="negyzet" id="negyzet"></div>
+            <div class="negyzet" id="negyzet" onclick="katt()"></div>
 
             <script>
                 var object = document.getElementById("negyzet")
@@ -30,6 +30,19 @@
                 console.log(meretY)
                 console.log(window.innerWidth)
                 console.log(window.innerHeight)
+
+                function randomColor(){
+                    r = Math.floor(Math.random() * 255)
+                    g = Math.floor(Math.random() * 255)
+                    b = Math.floor(Math.random() * 255)
+                    
+                    return "rgb(" + r + ", " + g + ", " + b + ")"
+                }
+
+                function katt() {
+                    object.style.backgroundColor = randomColor()
+                }
+
 
 
                 function kezd() {
