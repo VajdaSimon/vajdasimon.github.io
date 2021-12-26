@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                /*transition: 0.2s all ease;*/
+                cursor: none;
+            }
+            #info {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background-color: black;
+                color: white;
+                padding: 25px 50px;
+            }
+
+            .block {
+                position: fixed;
+                display: block;
+                height: 10px;
+                width: 10px;
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="block" id="block"></div>
+       
+        <script type="text/javascript">
+            var info = document.getElementById('block');
+
+            function tellPos(p){
+                info.style.top = p.pageY;
+                info.style.left = p.pageX;
+            }
+            addEventListener('mousemove', tellPos, false);
+        </script>
+    </body>
+</html>
