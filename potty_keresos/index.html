@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Unatkozom</title>
+
+        <script>
+            document.onkeydown = checkKey;
+            function checkKey(e) {
+
+                e = e || window.event;
+
+                if (e.keyCode == '38') fel(); //fel
+                if (e.keyCode == '40') le(); //le 
+                if (e.keyCode == '37') balra(); //balra
+                if (e.keyCode == '39') jobbra(); //jobbra
+            }
+        </script>
+    </head>
+    <body>
+        <div id="latom"></div>
+        <div id="pont"></div>
+        <div id="en"></div>
+    </body>
+    <style>
+        body {
+            background-color: black;
+        }
+        #en {
+            background-color: lightgreen;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+        }
+        #latom {
+            background-color: white;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 70%;
+            left: 44%;
+        }
+        #pont {
+            background-color: black;
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+    </style>
+    <script>
+        var pontok = 0;
+        function le() {
+            document.getElementById("latom").style.top = document.getElementById("latom").offsetTop + 5 + "px";
+            ell();
+        }
+        function fel() {
+            document.getElementById("latom").style.top = document.getElementById("latom").offsetTop - 5 + "px";
+            ell();
+        }
+        function balra() {
+            document.getElementById("latom").style.left = document.getElementById("latom").offsetLeft - 5 + "px";
+            ell();
+        }
+        function jobbra() {
+            document.getElementById("latom").style.left = document.getElementById("latom").offsetLeft + 5 + "px";
+            ell();
+        }
+        function ell() {
+			document.getElementById("en").style.top = document.getElementById("latom").offsetTop + 75 + "px";
+            document.getElementById("en").style.left = document.getElementById("latom").offsetLeft + 75 + "px";
+		
+            okes = 0;
+            for (i = 0; i <= 50; i++) {
+                if (document.getElementById("en").offsetLeft + i == document.getElementById("pont").offsetLeft) {
+                    okes++;
+                    break;
+                }
+            }
+            for (i = 0; i <= 50; i++) {
+                if (document.getElementById("en").offsetTop + i == document.getElementById("pont").offsetTop) {
+                    okes++;
+                    break;
+                }
+            }
+            if (okes == 2) {
+                pontok++;
+                elso = Math.floor(Math.random() * 2);
+                masodik = Math.floor(Math.random() * 2);
+                if (elso == 1) {
+                    document.getElementById("pont").style.top = document.getElementById("pont").offsetTop + Math.floor(Math.random() * 300);
+                }
+                else {
+                    document.getElementById("pont").style.top = document.getElementById("pont").offsetTop - Math.floor(Math.random() * 300);
+                }
+                if (masodik == 1) {
+                    document.getElementById("pont").style.left = document.getElementById("pont").offsetLeft + Math.floor(Math.random() * 300);
+                }
+                else {
+                    document.getElementById("pont").style.left = document.getElementById("pont").offsetLeft - Math.floor(Math.random() * 300);
+                }
+            }
+            document.getElementById("latom").innerHTML = "Pontok: " + pontok;
+        }
+        ell();
+    </script>
+</html>
