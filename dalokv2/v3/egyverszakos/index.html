@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+        <title>Hello, world!</title>
+    </head>
+    <body style="text-align: left; overflow: hidden; user-select: none; cursor: none; font-size: 10px;">
+        <style>
+            html,body {
+                height:100%;
+            }
+            body {
+                color: white;
+                /* background-image: url(fire.gif);*/
+                background-size: cover;
+                height: 100vh;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-color: black;
+                /* text-shadow: rgb(0, 0, 0) -2px -2px 0px, rgb(0, 0, 0) 2px -2px 0px, rgb(0, 0, 0) -2px 2px 0px, rgb(0, 0, 0) 2px 2px 0px; */
+            }
+            span {
+                white-space:nowrap;
+            }
+        </style>
+
+        <div class="container h-100">
+            <div class="row h-100 align-items-center text-center">
+                <div class="col-12" id="doboz">
+                    <span id="1">Őrhelyemre állok, megállok a bástyán</span><br>
+                    <span id="2">Hallgatom, hogy mit szól Isten Hangja hozzám.</span>
+                </div>   
+            </div>  
+        </div>
+
+        <script>
+            var szam = 10
+
+            if (document.getElementById("1").offsetWidth > document.getElementById("1").offsetWidth) {
+                while (document.getElementById("1").offsetWidth < document.getElementById("doboz").offsetWidth) {
+                    szam++;
+                    document.getElementById("1").style.fontSize = szam + "px";
+                }
+                document.getElementById("2").style.fontSize = szam + "px"
+            }
+            else {
+                while (document.getElementById("2").offsetWidth < document.getElementById("doboz").offsetWidth) {
+                    szam++;
+                    document.getElementById("2").style.fontSize = szam + "px";
+                }
+                document.getElementById("1").style.fontSize = szam + "px"
+            }
+        </script>
+
+
+        
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    </body>
+</html>

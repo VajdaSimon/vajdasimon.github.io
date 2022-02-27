@@ -17,7 +17,7 @@
                 }
             </style>
 
-            <div class="negyzet" id="negyzet" onclick="katt()"></div>
+            <div class="negyzet" id="negyzet" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)" onclick="katt()"></div>
 
             <script>
                 var object = document.getElementById("negyzet")
@@ -30,6 +30,14 @@
                 console.log(meretY)
                 console.log(window.innerWidth)
                 console.log(window.innerHeight)
+
+                function dragStart(event) {
+                    event.style.display = "none"
+                }
+
+                function dragEnd(event) {
+                    event.style.display = "block"
+                }
 
                 function randomColor(){
                     r = Math.floor(Math.random() * 255)
