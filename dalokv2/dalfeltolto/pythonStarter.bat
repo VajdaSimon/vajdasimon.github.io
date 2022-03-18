@@ -1,0 +1,1 @@
+python D:\simon\Documents\git\vajdasimon.github.io\dalokv2\test.py

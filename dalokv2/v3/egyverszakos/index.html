@@ -5,20 +5,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
         <title>Hello, world!</title>
+        <script>
+			document.onkeydown = checkKey;
+			function checkKey(e) {
+
+				e = e || window.event;
+
+				if (e.keyCode == '38') felfele();
+				else if (e.keyCode == '40') lefele();
+				/* else if (e.keyCode == '33') versszakFel();
+				else if (e.keyCode == '34') versszakLe(); */
+			}
+		</script>	
     </head>
-    <body style="text-align: left; overflow: hidden; user-select: none; cursor: none; font-size: 10px;">
+    <body>
         <style>
             html,body {
                 height:100%;
             }
             body {
                 color: white;
-                /* background-image: url(fire.gif);*/
+                background-image: url(fire.gif);
                 background-size: cover;
                 height: 100vh;
                 background-repeat: no-repeat;
                 background-attachment: fixed;
                 background-color: black;
+                overflow: hidden;
+                /* user-select: none;
+                cursor: none;  */
+                font-size: 10px;
                 /* text-shadow: rgb(0, 0, 0) -2px -2px 0px, rgb(0, 0, 0) 2px -2px 0px, rgb(0, 0, 0) -2px 2px 0px, rgb(0, 0, 0) 2px 2px 0px; */
             }
             span {
@@ -29,29 +45,85 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center text-center">
                 <div class="col-12" id="doboz">
-                    <span id="1">Őrhelyemre állok, megállok a bástyán</span><br>
-                    <span id="2">Hallgatom, hogy mit szól Isten Hangja hozzám.</span>
+                    <span id="1"></span><br>
+                    <span id="2"></span>
                 </div>   
             </div>  
         </div>
 
         <script>
-            var szam = 10
+            var szoveg = `Nincs más cél, és nincs más út.
+            Nincs más kéz, mi értünk nyúlt.
+            Ha szomjas vagy, nincs más kút.
+            Jézus az egyetlen!
 
-            if (document.getElementById("1").offsetWidth > document.getElementById("1").offsetWidth) {
-                while (document.getElementById("1").offsetWidth < document.getElementById("doboz").offsetWidth) {
-                    szam++;
-                    document.getElementById("1").style.fontSize = szam + "px";
-                }
-                document.getElementById("2").style.fontSize = szam + "px"
+            Egy pillantássa mindent lát.
+            Egy érintése átformál.
+            Elég ha szól egy szót, és porba hull
+            A súlyos lánc.
+
+            Nincs más cél, és nincs más út.
+            Nincs más kéz, mi értünk nyúlt.
+            Ha szomjas vagy, nincs más kút.
+            Jézus az egyetlen!
+
+            Ő a minden, Akire nézve
+            Az ég és föld teremtetett.
+            De szíve élet- szeretetébe
+            Én is elmerülhetek.
+
+            Értem jött, rám talált.
+            Szeretve felkarolt engem.
+            Minden szív, minden száj
+            Vallja Jézus az egyetlen!`
+
+            var szam
+            var ittJar = 0
+
+            function felfele() {
+                ittJar -= 2
+                setTimeout(szovegBetolt, 50)
             }
-            else {
-                while (document.getElementById("2").offsetWidth < document.getElementById("doboz").offsetWidth) {
-                    szam++;
-                    document.getElementById("2").style.fontSize = szam + "px";
-                }
-                document.getElementById("1").style.fontSize = szam + "px"
+
+            function lefele() {
+                ittJar += 2
+                setTimeout(szovegBetolt, 50)
             }
+
+            var i = 1
+
+            function szovegBetolt() {
+                szoveg = szoveg.replace("\n\n", "\n")
+                sorok = szoveg.split("\n")
+                document.getElementById("1").innerHTML = sorok[ittJar]
+                document.getElementById("2").innerHTML = sorok[ittJar + 1]
+
+                if (i == 1) {
+                    i = 0
+                    setTimeout(meret, 50)
+                }
+            }
+
+            function meret() {
+                console.log("most")
+                szam = 10
+                if (document.getElementById("1").offsetWidth > document.getElementById("1").offsetWidth) {
+                    while (document.getElementById("1").offsetWidth < document.getElementById("doboz").offsetWidth) {
+                        szam++;
+                        document.getElementById("1").style.fontSize = szam + "px";
+                    }
+                    document.getElementById("2").style.fontSize = szam + "px"
+                }
+                else {
+                    while (document.getElementById("2").offsetWidth < document.getElementById("doboz").offsetWidth) {
+                        szam++;
+                        document.getElementById("2").style.fontSize = szam + "px";
+                    }
+                    document.getElementById("1").style.fontSize = szam + "px"
+                }
+            }
+
+            szovegBetolt()
         </script>
 
 
