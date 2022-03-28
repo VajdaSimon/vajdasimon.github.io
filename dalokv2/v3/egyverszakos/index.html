@@ -35,16 +35,13 @@
                 /* user-select: none;
                 cursor: none;  */
                 font-size: 10px;
-                /* text-shadow: rgb(0, 0, 0) -2px -2px 0px, rgb(0, 0, 0) 2px -2px 0px, rgb(0, 0, 0) -2px 2px 0px, rgb(0, 0, 0) 2px 2px 0px; */
-            }
-            span {
-                white-space:nowrap;
+                text-shadow: rgb(0, 0, 0) -2px -2px 0px, rgb(0, 0, 0) 2px -2px 0px, rgb(0, 0, 0) -2px 2px 0px, rgb(0, 0, 0) 2px 2px 0px;
             }
         </style>
 
         <div class="container h-100">
             <div class="row h-100 align-items-center text-center">
-                <div class="col-12" id="doboz">
+                <div class="col-12 text-nowrap" id="doboz">
                     <span id="1"></span><br>
                     <span id="2"></span>
                 </div>   
@@ -81,16 +78,18 @@
             var ittJar = 0
 
             function felfele() {
-                ittJar -= 2
-                setTimeout(szovegBetolt, 50)
+                if (ittJar > 0) {
+                    ittJar -= 2
+                    setTimeout(szovegBetolt, 50)
+                }
             }
 
             function lefele() {
-                ittJar += 2
-                setTimeout(szovegBetolt, 50)
+                if (ittJar < sorok.length - 2) {
+                    ittJar += 2
+                    setTimeout(szovegBetolt, 50)
+                }
             }
-
-            var i = 1
 
             function szovegBetolt() {
                 szoveg = szoveg.replace("\n\n", "\n")
@@ -98,26 +97,24 @@
                 document.getElementById("1").innerHTML = sorok[ittJar]
                 document.getElementById("2").innerHTML = sorok[ittJar + 1]
 
-                if (i == 1) {
-                    i = 0
-                    setTimeout(meret, 50)
-                }
+                meret()
             }
 
             function meret() {
-                console.log("most")
                 szam = 10
-                if (document.getElementById("1").offsetWidth > document.getElementById("1").offsetWidth) {
+                if (document.getElementById("1").offsetWidth >= document.getElementById("2").offsetWidth) {
+                    document.getElementById("1").style.fontSize = szam + "px";
                     while (document.getElementById("1").offsetWidth < document.getElementById("doboz").offsetWidth) {
-                        szam++;
                         document.getElementById("1").style.fontSize = szam + "px";
+                        szam++;
                     }
                     document.getElementById("2").style.fontSize = szam + "px"
                 }
                 else {
+                    document.getElementById("2").style.fontSize = szam + "px";
                     while (document.getElementById("2").offsetWidth < document.getElementById("doboz").offsetWidth) {
-                        szam++;
                         document.getElementById("2").style.fontSize = szam + "px";
+                        szam++;
                     }
                     document.getElementById("1").style.fontSize = szam + "px"
                 }
